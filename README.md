@@ -1,25 +1,3 @@
 # ocp-node-autoscaling-demo
 
 Simple demo to show OpenShift node autoscaling using MachineAutoScalers 
-
-# verify autoscaler operator is running
-oc get deployments -n openshift-machine-api cluster-autoscaler-operator
-
-# create cluster autoscaler 
-oc create -f ocpscale.yml
-
-# verify autoscaler is operational
-oc get clusterautoscaler -n openshift-machine-api
-
-# See what pods you have in mopenshift-machine-api namespace 
-oc get pod -n openshift-machine-api
-
-# To automatically scale MachineSet(s) you need a MachineAutoscaler for the MachineSet(s) you want on autopilot   
-you can create them from GUI - in MachineSet properties - create autoscaler and choose how big it can grow (think about the money) 
-
-# create a project for the workload that will trigger scalining
-oc new-project autoscaling
-
-# Create the pods 
-oc create -f batch_deploy_pods.yml 
-

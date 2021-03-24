@@ -1,4 +1,4 @@
-# Cluster autoscaler
+
 # verify autoscaler operator is running
 oc get deployments -n openshift-machine-api cluster-autoscaler-operator
 
